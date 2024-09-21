@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: azure;
+    width: 100%;
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+/* Botón con mejoras de diseño y accesibilidad */
+.botones {
+    position: relative;
+    padding: 9px;
+    border-radius: 80px;
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.botones:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.botones a {
+    background: linear-gradient(45deg, #1e90ff, #4fc3f7); /* Gradiente suave */
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem; /* Aumenté el tamaño de fuente aquí */
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra adicional */
+    will-change: transform, background; /* Optimización de rendimiento */
+}
+
+
+.botones a:hover {
+    background-color: #4fc3f7;
+    color: #fff;
+    transform: translateY(-3px);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.botones a:focus {
+    outline: 3px solid rgba(50, 194, 194, 0.7); /* Mejora accesibilidad */
+}
+
+/* Efecto Ripple */
+.botones a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.6s, transform 0.6s;
+    transform: scale(0);
+}
+
+.botones a:active::after {
+    opacity: 1;
+    transform: scale(1.5);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* Responsividad del botón */
+@media screen and (max-width: 574px) {
+    .botones a {
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
+}
+
+/* Texto animado con estilo "HOLA MI AMOR" */
+.greetings {
+    font-size: 7rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.greetings > span {
+    animation: glow 2s ease-in-out infinite;
+    will-change: color, text-shadow; /* Optimización de rendimiento */
+}
+
+@keyframes glow {
+    0%, 100% {
+        color: #fff;
+        text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6;
+    }
+    10%, 90% {
+        color: #111;
+        text-shadow: none;
+    }
+}
+
+/* Animación para "HOLA" */
+.greetings > span:nth-child(1) {
+    animation-delay: 0s;
+    animation-duration: 3s;
+}
+
+.greetings > span:nth-child(2) {
+    animation-delay: 0.3s;
+    animation-duration: 3s;
+}
+
+.greetings > span:nth-child(3) {
+    animation-delay: 0.6s;
+    animation-duration: 3s;
+}
+
+.greetings > span:nth-child(4) {
+    animation-delay: 0.9s;
+    animation-duration: 3s;
+}
+
+/* Espacio entre palabras */
+.greetings > span:nth-child(5) {
+    animation-delay: 1.2s;
+    animation-duration: 3s;
+}
+
+/* Animación especial para "MI AMOR" */
+.greetings > span:nth-child(6),
+.greetings > span:nth-child(7),
+.greetings > span:nth-child(9),
+.greetings > span:nth-child(10),
+.greetings > span:nth-child(11),
+.greetings > span:nth-child(12) {
+    animation: glow-romantic 4s ease-in-out infinite;
+}
+
+@keyframes glow-romantic {
+    0%, 100% {
+        color: #FF69B4;
+        text-shadow: 0 0 20px #FF69B4, 0 0 40px #FF69B4, 0 0 60px #FF69B4;
+    }
+    50% {
+        color: #FFD700;
+        text-shadow: 0 0 30px #FFD700, 0 0 50px #FFD700, 0 0 70px #FFD700;
+    }
+}
+
+/* Delays ajustados para "MI AMOR" */
+.greetings > span:nth-child(6) {
+    animation-delay: 1.5s;
+}
+
+.greetings > span:nth-child(7) {
+    animation-delay: 1.8s;
+}
+
+.greetings > span:nth-child(9) {
+    animation-delay: 2.1s;
+}
+
+.greetings > span:nth-child(10) {
+    animation-delay: 2.4s;
+}
+
+.greetings > span:nth-child(11) {
+    animation-delay: 2.7s;
+}
+
+.greetings > span:nth-child(12) {
+    animation-delay: 3s;
+}
+
+/* Ajustes responsivos */
+@media screen and (max-width: 574px) {
+    .greetings {
+        font-size: 4rem;
+        font-weight: 800;
+    }
+}
